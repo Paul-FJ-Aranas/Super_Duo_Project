@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="widget_empty_text">No Football Scores Info Available</string>
+    <string name="league_bundesliga1">League: Bundesliga1</string>
+    <string name="share">share</string>
+</resources>
