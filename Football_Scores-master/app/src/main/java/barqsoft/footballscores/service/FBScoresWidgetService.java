@@ -38,7 +38,7 @@ class FBScoresRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactor
     private ContentResolver cr;
     private int mAppWidgetId;
 
-    private static final String [] FB_SCORES_COLUMNS = {
+    private static final String[] FB_SCORES_COLUMNS = {
             DatabaseContract.scores_table.LEAGUE_COL,
             DatabaseContract.scores_table.DATE_COL,
             DatabaseContract.scores_table.HOME_COL,
@@ -47,6 +47,7 @@ class FBScoresRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactor
             DatabaseContract.scores_table.AWAY_GOALS_COL,
 
     };
+
     public FBScoresRemoteViewsFactory(Context applicationContext, Intent intent) {
         mContext = applicationContext;
         mAppWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID);
@@ -98,58 +99,78 @@ class FBScoresRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactor
         String awayGoals = cursor.getString(awayGoalsIndex);
 
 
-
         RemoteViews rv = new RemoteViews(mContext.getPackageName(), R.layout.widget_item);
 
         switch (league) {
 
             case "394":
                 rv.setTextViewText(R.id.widget_league, mContext.getString(R.string.league_bundesliga1));
+                break;
 
             case "395":
-                rv.setTextViewText(R.id.widget_league,mContext.getString(R.string.league_bundesliga2));
+                rv.setTextViewText(R.id.widget_league, mContext.getString(R.string.league_bundesliga2));
+                break;
 
             case "396":
 
-                rv.setTextViewText(R.id.widget_league,mContext.getString(R.string.league_ligue1));
+                rv.setTextViewText(R.id.widget_league, mContext.getString(R.string.league_ligue1));
+                break;
 
             case "397":
-                rv.setTextViewText(R.id.widget_league,mContext.getString(R.string.league_ligue2));
+                rv.setTextViewText(R.id.widget_league, mContext.getString(R.string.league_ligue2));
+                break;
 
             case "398":
 
-                rv.setTextViewText(R.id.widget_league,mContext.getString(R.string.league_premiere_league));
+                rv.setTextViewText(R.id.widget_league, mContext.getString(R.string.league_premiere_league));
+                break;
 
             case "399":
 
-                rv.setTextViewText(R.id.widget_league,mContext.getString(R.string.league_primera_division) );
+                rv.setTextViewText(R.id.widget_league, mContext.getString(R.string.league_primera_division));
+                break;
 
             case "400":
 
-                rv.setTextViewText(R.id.widget_league,mContext.getString(R.string.league_segunda_division));
+                rv.setTextViewText(R.id.widget_league, mContext.getString(R.string.league_segunda_division));
+                break;
 
             case "401":
-                rv.setTextViewText(R.id.widget_league,mContext.getString(R.string.league_serie_A ));
+                rv.setTextViewText(R.id.widget_league, mContext.getString(R.string.league_serie_A));
+                break;
 
             case "402":
-                rv.setTextViewText(R.id.widget_league,mContext.getString(R.string.league_primera_liga) );
+                rv.setTextViewText(R.id.widget_league, mContext.getString(R.string.league_primera_liga));
+                break;
 
             case "403":
-                rv.setTextViewText(R.id.widget_league,mContext.getString(R.string.league_bundesliga3));
+                rv.setTextViewText(R.id.widget_league, mContext.getString(R.string.league_bundesliga3));
+                break;
+
             case "404":
-                rv.setTextViewText(R.id.widget_league,mContext.getString(R.string.league_eredivisie));
+                rv.setTextViewText(R.id.widget_league, mContext.getString(R.string.league_eredivisie));
+                break;
+            default:
+                rv.setTextViewText(R.id.widget_league, mContext.getString(R.string.no_league_info));
 
 
         }
 
-        if (homeGoals.equals("-1") && awayGoals.equals("-1")){
-            rv.setTextViewText(R.id.widget_text_home, date + "\n" + "No score yet \n" + "@" + home + " vs " );
-            rv.setTextViewText(R.id.widget_text_away, away + " " );
+        if (homeGoals.equals("-1") && awayGoals.equals("-1")) {
+            rv.setImageViewResource(R.id.widget_image_football, R.drawable.football);
+            rv.setTextViewText(R.id.widget_text_home, date + "\n" + mContext.getString(R.string.no_score_yet) + " \n" + "@" + home + " " + mContext.getString(R.string.versus));
+            rv.setTextViewText(R.id.widget_text_away, away + " ");
 
         } else {
+            rv.setImageViewResource(R.id.widget_image_football, R.drawable.football);
             rv.setTextViewText(R.id.widget_text_home, date + "\n" + " " + "@" + home + " " + homeGoals);
             rv.setTextViewText(R.id.widget_text_away, away + " " + awayGoals);
         }
+
+
+        Intent fillInIntent = new Intent();
+        rv.setOnClickFillInIntent(R.id.widget_image_football, fillInIntent);
+
         return rv;
     }
 

@@ -15,6 +15,8 @@ import barqsoft.footballscores.service.FBScoresWidgetService;
  */
 public class FBScoresAppWidgetProvider extends AppWidgetProvider {
 
+    public static final String EXTRA_ITEM = "barqsoft.footballscores.FBScoresAppWidgetProvider.EXTRA_ITEM";
+
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
@@ -35,6 +37,11 @@ public class FBScoresAppWidgetProvider extends AppWidgetProvider {
             rv.setRemoteAdapter(appWidgetIds[i], R.id.widget_list_collection, intent);
 
             rv.setEmptyView(R.id.widget_list_collection, R.id.empty_widget_text);
+
+            Intent templateIntent = new Intent(context, MainActivity.class);
+            templateIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
+            PendingIntent activityPendingIntent = PendingIntent.getActivity(context, 0, templateIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+            rv.setPendingIntentTemplate(R.id.widget_list_collection, activityPendingIntent);
 
             appWidgetManager.updateAppWidget(appWidgetId, rv);
         }
