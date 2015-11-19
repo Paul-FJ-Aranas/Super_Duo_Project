@@ -159,6 +159,7 @@ public class BookService extends IntentService {
                 buffer.append("\n");
             }
             if (buffer.length() == 0) {
+                //added server down message to user
                 setBookServiceStatus(BOOK_SERVICE_STATUS_SERVER_DOWN);
                 return;
             }
@@ -167,6 +168,7 @@ public class BookService extends IntentService {
             parseJson(bookJsonString, ean);
         } catch (IOException e) {
             Log.e(LOG_TAG, "Error ", e);
+
             //added server down message to user
             setBookServiceStatus(BOOK_SERVICE_STATUS_SERVER_DOWN);
         } finally {
@@ -183,8 +185,9 @@ public class BookService extends IntentService {
 
         }
     }
+
     //broke parsing into separate method
-        public void parseJson (String bookJsonString, String ean){
+    public void parseJson(String bookJsonString, String ean) {
         try {
             JSONObject bookJson = new JSONObject(bookJsonString);
             JSONArray bookArray;

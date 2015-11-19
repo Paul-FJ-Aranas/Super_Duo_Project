@@ -158,14 +158,12 @@ public class AddBook extends Fragment implements LoaderManager.LoaderCallbacks<C
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        if (requestCode == SCANNER_REQUEST) {
+        if (requestCode == SCANNER_REQUEST && data != null) {
             String barcode = data.getStringExtra("BARCODE");
             if (barcode.equals("NULL")) {
 
-                Log.d("PPPP", barcode.toString());
 
             } else {
-                Log.d("PPPP2222", barcode.toString());
                 ean.setText(barcode);
             }
         }

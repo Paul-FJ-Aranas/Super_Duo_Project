@@ -25,6 +25,8 @@ import net.sourceforge.zbar.SymbolSet;
 import it.jaschke.alexandria.CameraPreview.CameraPreview;
 import me.dm7.barcodescanner.zbar.ZBarScannerView;
 
+// implemented scanner funtionality using ZBar. The app does not require the installation
+// of a separate app upon first use.
 
 public class ScannerActivity extends Activity {
     private ZBarScannerView mScannerView;
@@ -81,14 +83,12 @@ public class ScannerActivity extends Activity {
     PreviewCallback previewCb = new PreviewCallback() {
         @Override
         public void onPreviewFrame(byte[] bytes, Camera camera) {
-            Log.d("PPPPP", "SCANNED");
             Camera.Parameters parameters = camera.getParameters();
             Camera.Size size = parameters.getPreviewSize();
             Image barcode = new Image(size.width, size.height, "Y800");
             barcode.setData(bytes);
             int result = imageScanner.scanImage(barcode);
 
-            Log.d("WWWW", Integer.toString(result));
             if (result != 0) {
                 mPreviewingPhoto = false;
                 mCamera.setPreviewCallback(null);
@@ -97,7 +97,6 @@ public class ScannerActivity extends Activity {
 
                 for (Symbol sym : symbols) {
                     barcodeScanned = true;
-                    Log.d("PPPPP", symbols.toString());
                     Intent returnIntent = new Intent();
                     returnIntent.putExtra("BARCODE", sym.getData());
                     setResult(1, returnIntent);
