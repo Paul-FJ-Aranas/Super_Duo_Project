@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
+<?xml version="1.0" encoding="utf-8"?><!-- proper names marked to avoid translation -->
+<resources xmlns:xliff="http://schemas.android.com/apk/res-auto">
     <string name="widget_label">Football Scores Widget</string>
     <string name="app_name">Football Scores</string>
     <string name="action_settings">Settings</string>
@@ -7,7 +7,7 @@
     <string name="today">Today</string>
     <string name="yesterday">Yesterday</string>
     <string name="tomorrow">Tomorrow</string>
-    <string name="champions_league">UEFA Champions League</string>
+    <string name="champions_league" translatable="false">UEFA Champions League</string>
     <string name="bundesliga" translatable="false">Bundesliga</string>
     <string name="premierleague" translatable="false">Premier League</string>
     <string name="primeradivison" translatable="false">Primera Division</string>
@@ -38,18 +38,18 @@
     <string name="no_score_yet">No score yet</string>
     <string name="versus">vs</string>
 
-    <!-- Widget Text for Leagues -->
-    <string name="league_bundesliga1">League: Bundesliga1</string>
-    <string name="league_bundesliga2">League: Bundesliga2</string>
-    <string name="league_ligue1">League: Ligue1</string>
-    <string name="league_ligue2">League: Ligue2</string>
-    <string name="league_premiere_league">League: Premiere League</string>
-    <string name="league_primera_division">League: Primera Division</string>
-    <string name="league_segunda_division">League: Segunda Division</string>
-    <string name="league_serie_A">League: Serie A</string>
-    <string name="league_primera_liga">League: Primera Liga</string>
-    <string name="league_bundesliga3">League: Bundesliga3</string>
-    <string name="league_eredivisie">League: Eredivisie</string>
+    <!-- Widget Text for Leagues, proper names of league marked to avoid translation -->
+    <string name="league_bundesliga1">League: <xliff:g id="league_name1"> Bundesliga1</xliff:g> </string>
+    <string name="league_bundesliga2">League: <xliff:g id="league_name2">Bundesliga2</xliff:g></string>
+    <string name="league_ligue1">League: <xliff:g id="league_name3">Ligue1</xliff:g></string>
+    <string name="league_ligue2">League: <xliff:g id="league_name4">Ligue2</xliff:g></string>
+    <string name="league_premiere_league">League: <xliff:g id="league_name5">Premiere League</xliff:g></string>
+    <string name="league_primera_division">League: <xliff:g id="league_name6">Primera Division</xliff:g></string>
+    <string name="league_segunda_division">League: <xliff:g id="league_name7">Segunda Division</xliff:g></string>
+    <string name="league_serie_A">League: <xliff:g id="league_name8">Serie A</xliff:g></string>
+    <string name="league_primera_liga">League: <xliff:g id="league_name9">Primera Liga</xliff:g></string>
+    <string name="league_bundesliga3">League: <xliff:g id="league_name10">Bundesliga3</xliff:g></string>
+    <string name="league_eredivisie">League: <xliff:g id="league_name11">Eredivisie</xliff:g></string>
     <string name="no_league_info">No league info</string>
     <string name="share">share</string>
 
