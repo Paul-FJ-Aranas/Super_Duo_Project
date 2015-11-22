@@ -11,5 +11,6 @@
     <!-- added text to dimen to allow for different screen sizes -->
     <dimen name="about_text">18sp</dimen>
     <dimen name="League">15sp</dimen>
+    <dimen name="tab_title">20sp</dimen>
 </resources>
 

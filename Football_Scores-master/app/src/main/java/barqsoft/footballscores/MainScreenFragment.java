@@ -27,10 +27,6 @@ public class MainScreenFragment extends Fragment implements LoaderManager.Loader
     public MainScreenFragment() {
     }
 
-    private void update_scores() {
-        Intent service_start = new Intent(getActivity(), MyFetchService.class);
-        getActivity().startService(service_start);
-    }
 
     public void setFragmentDate(String date) {
         fragmentdate[0] = date;
@@ -92,5 +88,9 @@ public class MainScreenFragment extends Fragment implements LoaderManager.Loader
         mAdapter.swapCursor(null);
     }
 
+    private void update_scores() {
+        Intent service_start = new Intent(getActivity(), MyFetchService.class);
+        getActivity().startService(service_start);
+    }
 
 }
