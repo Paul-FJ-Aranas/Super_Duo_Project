@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?><!-- proper names marked to avoid translation -->
 <resources xmlns:xliff="http://schemas.android.com/apk/res-auto">
 
-    <!-- API Key -->
-    <string name="api_key" translatable="false">API Key Redacted</string>
-    
     <string name="widget_label">Football Scores Widget</string>
     <string name="app_name">Football Scores</string>
     <string name="action_settings">Settings</string>
