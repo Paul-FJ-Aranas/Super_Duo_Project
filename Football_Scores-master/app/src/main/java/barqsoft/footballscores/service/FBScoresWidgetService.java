@@ -5,21 +5,10 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
-import android.net.Uri;
-import android.os.Bundle;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
-import android.widget.TextView;
-
-import java.sql.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
 
 import barqsoft.footballscores.DatabaseContract;
-import barqsoft.footballscores.FBScoresAppWidgetProvider;
-import barqsoft.footballscores.MainActivity;
 import barqsoft.footballscores.R;
 
 /**
