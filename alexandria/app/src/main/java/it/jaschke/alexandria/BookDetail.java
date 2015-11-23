@@ -28,7 +28,7 @@ import it.jaschke.alexandria.services.DownloadImage;
 public class BookDetail extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
     public static final String EAN_KEY = "EAN";
-    private static final String LOG_TAG = "Error: " ;
+    private static final String LOG_TAG = "Error: ";
     private final int LOADER_ID = 10;
     private View rootView;
     private String ean;
@@ -113,67 +113,65 @@ public class BookDetail extends Fragment implements LoaderManager.LoaderCallback
             shareIntent.setType("text/plain");
             shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_text) + bookTitle);
             shareActionProvider.setShareIntent(shareIntent);
-        } else
-    {
-        Log.d(LOG_TAG, "Share Action Provider is null?");
-    }
-
-    String bookSubTitle = data.getString(data.getColumnIndex(AlexandriaContract.BookEntry.SUBTITLE));
-    ((TextView)rootView.findViewById(R.id.fullBookSubTitle)).
-
-    setText(bookSubTitle);
-
-    String desc = data.getString(data.getColumnIndex(AlexandriaContract.BookEntry.DESC));
-    ((TextView)rootView.findViewById(R.id.fullBookDesc)).
-
-    setText(desc);
-
-    String authors = data.getString(data.getColumnIndex(AlexandriaContract.AuthorEntry.AUTHOR));
-    String[] authorsArr = authors.split(",");
-    ((TextView)rootView.findViewById(R.id.authors)).
-
-    setLines(authorsArr.length);
-
-    ((TextView)rootView.findViewById(R.id.authors)).
-
-    setText(authors.replace(",", "\n")
-
-    );
-
-    //added a network check
-    if(
-
-   Utility.isNetworkAvailable(getActivity())
-
-    )
-
-    {
-        String imgUrl = data.getString(data.getColumnIndex(AlexandriaContract.BookEntry.IMAGE_URL));
-
-        if (Patterns.WEB_URL.matcher(imgUrl).matches()) {
-            new DownloadImage((ImageView) rootView.findViewById(R.id.fullBookCover)).execute(imgUrl);
-            rootView.findViewById(R.id.fullBookCover).setVisibility(View.VISIBLE);
+        } else {
+            Log.d(LOG_TAG, "Share Action Provider is null?");
         }
-    }
-    //added a placeholder for unavailable book cover when network is not connected
-    if(!Utility.isNetworkAvailable(getActivity()))
 
-    {
-        ImageView placeholderImage = (ImageView) rootView.findViewById(R.id.fullBookCover);
-        Drawable placeholder = getActivity().getResources().getDrawable(R.drawable.placeholder);
-        placeholderImage.setImageDrawable(placeholder);
-    }
+        String bookSubTitle = data.getString(data.getColumnIndex(AlexandriaContract.BookEntry.SUBTITLE));
+        ((TextView) rootView.findViewById(R.id.fullBookSubTitle)).
+
+                setText(bookSubTitle);
+
+        String desc = data.getString(data.getColumnIndex(AlexandriaContract.BookEntry.DESC));
+        ((TextView) rootView.findViewById(R.id.fullBookDesc)).
+
+                setText(desc);
+
+        String authors = data.getString(data.getColumnIndex(AlexandriaContract.AuthorEntry.AUTHOR));
+        //Error case: added null check for books without a given author
+        if (authors != null) {
+        String[] authorsArr = authors.split(",");
+        ((TextView) rootView.findViewById(R.id.authors)).
+
+                setLines(authorsArr.length);
+
+            ((TextView) rootView.findViewById(R.id.authors)).
+                    setText(authors.replace(",", "\n"));
+        }
+        //added a network check
+        if (
+
+                Utility.isNetworkAvailable(getActivity())
+
+                )
+
+        {
+            String imgUrl = data.getString(data.getColumnIndex(AlexandriaContract.BookEntry.IMAGE_URL));
+
+            if (Patterns.WEB_URL.matcher(imgUrl).matches()) {
+                new DownloadImage((ImageView) rootView.findViewById(R.id.fullBookCover)).execute(imgUrl);
+                rootView.findViewById(R.id.fullBookCover).setVisibility(View.VISIBLE);
+            }
+        }
+        //added a placeholder for unavailable book cover when network is not connected
+        if (!Utility.isNetworkAvailable(getActivity()))
+
+        {
+            ImageView placeholderImage = (ImageView) rootView.findViewById(R.id.fullBookCover);
+            Drawable placeholder = getActivity().getResources().getDrawable(R.drawable.placeholder);
+            placeholderImage.setImageDrawable(placeholder);
+        }
 
 
-    String categories = data.getString(data.getColumnIndex(AlexandriaContract.CategoryEntry.CATEGORY));
-    ((TextView)rootView.findViewById(R.id.categories)).
+        String categories = data.getString(data.getColumnIndex(AlexandriaContract.CategoryEntry.CATEGORY));
+        ((TextView) rootView.findViewById(R.id.categories)).
 
-    setText(categories);
+                setText(categories);
 
         //Error Case, removed custom back button functionality in accordance with Android guidelines
 
 
-}
+    }
 
     @Override
     public void onLoaderReset(android.support.v4.content.Loader<Cursor> loader) {
