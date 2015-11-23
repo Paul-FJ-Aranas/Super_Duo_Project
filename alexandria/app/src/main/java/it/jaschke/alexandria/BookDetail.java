@@ -170,11 +170,8 @@ public class BookDetail extends Fragment implements LoaderManager.LoaderCallback
 
     setText(categories);
 
-    if(rootView.findViewById(R.id.right_container)!=null)
+        //Error Case, removed custom back button functionality in accordance with Android guidelines
 
-    {
-        rootView.findViewById(R.id.backButton).setVisibility(View.INVISIBLE);
-    }
 
 }
 

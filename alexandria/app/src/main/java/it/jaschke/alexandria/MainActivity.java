@@ -159,10 +159,7 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
             }
         }
     }
-
-    public void goBack(View view) {
-        getSupportFragmentManager().popBackStack();
-    }
+    //Error Case, removed custom back button functionality in accordance with Android guidelines
 
     private boolean isTablet() {
         return (getApplicationContext().getResources().getConfiguration().screenLayout
