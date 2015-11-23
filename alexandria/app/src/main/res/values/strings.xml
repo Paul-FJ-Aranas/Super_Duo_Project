@@ -12,6 +12,8 @@
     <string name="action_settings">Settings</string>
     <string name="scan_button">Scan</string>
     <string name="input_hint">Insert ISBN-13. Digits only.</string>
+
+    <!-- content description for bookcover -->
     <string name="book_cover">Bookcover</string>
 
     <string name="ok_button">Next</string>

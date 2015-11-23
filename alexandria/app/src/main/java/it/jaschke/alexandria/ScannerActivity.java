@@ -4,13 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.hardware.Camera;
 import android.hardware.Camera.AutoFocusCallback;
 import android.hardware.Camera.PreviewCallback;
-import android.hardware.Camera.Size;
-
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
