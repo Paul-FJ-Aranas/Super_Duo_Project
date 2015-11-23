@@ -16,8 +16,8 @@
     <string name="matchday_text">Match day</string>
     <string name="group_stage_text">Group stages</string>
     <string name="first_knockout_round">First knockout round</string>
-    <string name="quarter_final">Quarter Final</string>
-    <string name="semi_final">Semi Final</string>
+    <string name="quarter_final">Quarterfinal</string>
+    <string name="semi_final">Semifinal</string>
     <string name="final_text">Final</string>
     <string name="share_text">Share</string>
     <string name="about">About</string>
@@ -52,6 +52,15 @@
     <string name="league_eredivisie">League: <xliff:g id="league_name11">Eredivisie</xliff:g></string>
     <string name="no_league_info">No league info</string>
     <string name="share">share</string>
+
+    <!-- strings from Utitilies class -->
+    <string name="seria_a">Seria A</string>
+    <string name="premier_league">Premier League</string>
+    <string name="uefa_champions_league">UEFA Champions League</string>
+    <string name="primera_division">Primera Division</string>
+    <string name="bundesliga1">Bundesliga</string>
+    <string name="league_not_known">Not known League Please report</string>
+    <string name="matchday_6">Group Stages, Matchday : 6</string>
 
 
 </resources>

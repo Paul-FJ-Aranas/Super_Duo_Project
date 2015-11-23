@@ -3,4 +3,10 @@
     <string name="widget_empty_text">No Football Scores Info Available</string>
     <string name="league_bundesliga1">League: Bundesliga1</string>
     <string name="share">share</string>
+    <string name="seria_a">Seria A</string>
+    <string name="premier_league">Premier League</string>
+    <string name="uefa_champions_league">UEFA Champions League</string>
+    <string name="primera_division">Primera Division</string>
+    <string name="bundesliga1">Bundesliga</string>
+    <string name="league_not_known">Not known League Please report</string>
 </resources>
